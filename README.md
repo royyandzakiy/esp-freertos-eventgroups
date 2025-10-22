@@ -1,19 +1,6 @@
-# FreeRTOS Event Groups Demonstration (ESP32 + Arduino)
+# FreeRTOS - Event Groups (ESP + Arduino)
 
 This project illustrates how **FreeRTOS event groups** can be used to coordinate multiple concurrent tasks in a real-time system. It is implemented for the **ESP32** using the **Arduino framework** on **PlatformIO**.
-
----
-
-## Requirements
-
-**Board:** ESP32-S3 DevKitC-1
-**Framework:** Arduino (via PlatformIO)
-**Core Dependencies:**
-
-* FreeRTOS (included in ESP-IDF)
-* Arduino core for ESP32
-
----
 
 ## Overview
 
@@ -24,7 +11,12 @@ An event group is essentially a set of bits shared across tasks.
 * Each bit can represent the state of a subsystem (e.g., a sensor, GPS, button press, or network connection).
 * Tasks can **set** bits when events occur or **wait** for one or multiple bits before continuing execution.
 
----
+## Getting Started
+
+1. Open the project in PlatformIO (VSCode).
+2. Connect your ESP board.
+3. Build and upload the firmware.
+4. Open the serial monitor at **115200 baud** to observe the log output.
 
 ## Concept: Event Groups
 
@@ -39,8 +31,6 @@ Two modes of waiting are used:
 * **OR logic (`pdFALSE`)** – continues when *any* specified bit is set.
 
 Bits can also be cleared automatically after being consumed, allowing repeating cycles.
-
----
 
 ## Code Structure and Flow
 
@@ -75,19 +65,8 @@ Each bit corresponds to a subsystem event. These are combined and managed within
    * `uiTask` waits for **either** a button press or a network event to update the UI.
 3. Bits are cleared automatically after being processed to allow continuous operation.
 
----
-
 ## Key Takeaways
 
 * Event groups provide **efficient synchronization** between concurrent tasks without polling.
 * The **AND/OR wait logic** offers flexibility for multi-condition task coordination.
 * The structure shown here scales easily for complex systems such as sensor fusion, communication managers, or user interfaces in embedded applications.
-
----
-
-## How to Run
-
-1. Open the project in PlatformIO (VSCode).
-2. Connect your ESP32-S3 board.
-3. Build and upload the firmware.
-4. Open the serial monitor at **115200 baud** to observe the log output.
