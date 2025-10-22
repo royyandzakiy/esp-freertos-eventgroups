@@ -91,7 +91,3 @@ Each bit corresponds to a subsystem event. These are combined and managed within
 2. Connect your ESP32-S3 board.
 3. Build and upload the firmware.
 4. Open the serial monitor at **115200 baud** to observe the log output.
-
----
-
-This example serves as a practical reference for understanding FreeRTOS task coordination in embedded systems.
